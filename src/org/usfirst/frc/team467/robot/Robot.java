@@ -150,7 +150,15 @@ public class Robot extends IterativeRobot {
         }
     }
     
-    /**
+    private String getData(CANTalon motor) {
+		return "RPM:" + motor.getSpeed() +
+				", Pos:" + motor.getPosition() +
+				", throttle:" + motor.getOutputVoltage()/motor.getBusVoltage() + 
+				", Closed Loop Error:" + motor.getClosedLoopError() + 
+				"";
+	}
+
+	/**
      * Copied from WPILib
      * 
      * @param turn
@@ -219,14 +227,6 @@ public class Robot extends IterativeRobot {
     	
     	fr.set(right);
     	br.set(frID);
-    }
-    
-    private String getData(CANTalon motor) {
-    	return "RPM:" + motor.getSpeed() +
-    			", Pos:" + motor.getPosition() +
-    			", throttle:" + motor.getOutputVoltage()/motor.getBusVoltage() + 
-    			", Closed Loop Error:" + motor.getClosedLoopError() + 
-    			"";
     }
     
 }
